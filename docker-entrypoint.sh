@@ -2,8 +2,8 @@
 set -e
 
 if [ $# -eq 0 ]; then
-    /usr/sbin/grafana-server --homepath=/usr/share/grafana --config=/etc/grafana/grafana.ini cfg:default.paths.data=/var/lib/grafana cfg:default.paths.logs=/var/log/grafana
+    exec supervisord -c /usr/etc/supervisord.conf --nodaemon
 else
-    service grafana-server start
+    supervisord -c /usr/etc/supervisord.conf
     exec "$@"
 fi
