@@ -1,5 +1,44 @@
 Grafana Dockerfile
-==================
+===================
+
+### Build
+
+```
+make
+```
+
+
+### Usage
+
+```
+make start
+```
+
+```
+make stop
+```
+
+> Note that if you are running Docker on OS X you will have to set up
+> port forwarding from your OS X to the Docker host virtual machine.
+> This can easily be done by running the following command:
+>
+> ```
+> VBoxManage controlvm "<docker-host-name>" natpf1 "<pfrule-name>,<protocol>,,<local-port>,,<remote-port>"
+> ```
+>
+> Note that the above command will only work if the Docker host
+> virtual machine is running. If the machine is stopped, you can use
+> this other command instead:
+>
+> ```
+> VBoxManage modifyvm "<docker-host-name>" --natpf1 "<pfrule-name>,<protocol>,,<local-port>,,<remote-port>"
+> ```
+
+### Ports
+
+| Port Number | Protocol | Description                                                  |
+|:-----------:|:--------:|--------------------------------------------------------------|
+| 3000        | TCP      | Grafana web dashboard                                        |
 
 
 ### Author(s)
