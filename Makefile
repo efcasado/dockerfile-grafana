@@ -11,7 +11,7 @@
 # Other valid values are: snapshot and release
 ENV         ?= dev
 
-DOCKER_OPTS := -d -p 3000:3000
+DOCKER_OPTS := -d -p 3000:3000 -v "$(PWD)/var/lib/grafana/dashboards/:/var/lib/grafana/dashboards/"
 
 ##=========================================================================
 ## Variables
